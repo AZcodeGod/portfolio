@@ -3,13 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { testimonials } from "../constants";
 import { fadeIn, textVariant } from "@/app/utils/motion";
 import { SectionWrapper } from "./HigherOrderComponents";
 
 type FeedbackCardProps = {
 	index: number;
-	testimonial: string;
 	name: string;
 	link: string;
 	image: string;
@@ -17,7 +15,6 @@ type FeedbackCardProps = {
 
 const FeedbackCard = ({
 	index,
-	testimonial,
 	name,
 	link,
 	image,
@@ -29,7 +26,7 @@ const FeedbackCard = ({
 		<p className="text-white font-black text-[48px]">&quot;</p>
 
 		<div className="mt-1 ">
-			<p className="text-white tracking-wider text-[18px]">{testimonial}</p>
+			
 			<div className="mt-7 flex justify-between items-center gap-1">
 				<div className="flex-1 flex flex-col">
 					<p className="text-white font-medium text-[16px]">
@@ -62,11 +59,7 @@ const Feedbacks = () => {
 					</p>
 				</motion.div>
 			</div>
-			<div className="paddingX -mt-20 pb-14 flex flex-wrap gap-7">
-				{testimonials.map((testimonial, index) => (
-					<FeedbackCard key={testimonial.id} index={index} {...testimonial} />
-				))}
-			</div>
+			
 		</div>
 	);
 };
