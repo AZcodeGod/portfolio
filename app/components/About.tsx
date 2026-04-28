@@ -54,13 +54,14 @@ const About = () => {
 				variants={fadeIn("", "", 0.1, 1)}
 				className="mt-4 text-secondary text-[17px] max-w-[3xl] leading-[30px]"
 			>
-				Dynamic Full-Stack Developer with a passion for crafting innovative web
-				applications. Proven expertise in React, Next.js, Node.js, and Python.
-				Skilled in UI/UX design and DevOps (Docker). Proven ability to deliver high-quality,
-				scalable solutions, as demonstrated by a strong portfolio of full-stack
-				Next.js projects and modern UI/UX designs. Eager to leverage my
-				technical prowess and problem-solving abilities to contribute to
-				cutting-edge projects and drive innovation.
+				Dynamic Full-Stack Software Engineer focused on building scalable, 
+				high-performance web applications that solve real business problems.
+				 Specialized in React, Next.js, Node.js, and Python, with strong execution 
+				 in modern UI/UX and system design. Experienced in shipping production-ready 
+				 applications using Docker and efficient DevOps workflows. Proven track record
+				  of turning ideas into fast, clean, and scalable products through multiple 
+				  full-stack Next.js projects. Driven to create impactful digital solutions, 
+				  optimize performance, and deliver measurable results in fast-paced environments.
 			</motion.p>
 			<div className="mt-20 flex flex-wrap gap-10">
 				{services.map((service, index) => (

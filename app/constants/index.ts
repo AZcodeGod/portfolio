@@ -5,7 +5,15 @@ export const navLinks = [
 	},
 	{
 		id: "work",
-		title: "Work",
+		title: "Work|Projects",
+	},
+	{
+		id: "skills",
+		title: "Skills",
+	},
+	{
+		id: "certificates",
+		title: "Certificates",
 	},
 	{
 		id: "contact",
@@ -23,7 +31,7 @@ const services = [
 		icon: "/web.webp",
 	},
 	{
-		title: "App Developer",
+		title: "Wordpress Developer",
 		icon: "/mobile.webp",
 	},
 	{
@@ -90,10 +98,10 @@ const technologies = [
 const experiences = [
 	{
 		title: "Wordpress Developer & UI/UX Designer",
-		company_name: "A.V.M Auto",
+		company_name: "",
 		icon: "/company/avm.webp",
 		iconBg: "#383E56",
-		date: "2020 -  2023",
+		date: "2023 -  2024",
 		points: [
 			"Self-Taught Expertise: Gained proficiency in WordPress and UI/UX design through independent learning.",
 			"Collaborative Design: Worked closely with stakeholders to gather feedback and iterate on the portfolio website's interactivity.",
@@ -102,72 +110,16 @@ const experiences = [
 		],
 	},
 	{
-		title: "Next.JS Developer",
-		company_name: "Sparkbright Engineering",
+		title: "Full Stack Software Engineer",
+		company_name: "Oly Technology",
 		icon: "/company/sparkbright.webp",
 		iconBg: "#E6DEDD",
-		date: "2023 - 2024",
+		date: "2022 - 2025",
 		points: [
 			"Self-Taught Expertise: Gained proficiency in React.JS and Next.JS through independent learning.",
 			"Successful Website Development: Designed and developed a visually appealing and user-friendly portfolio website using Next.JS.",
 			"Collaborative Design: Worked closely with stakeholders to gather feedback and iterate on the portfolio website's interactivity."
 		],
-	},
-	{
-		title: "Software Developer",
-		company_name: "Way to Web Pvt. Ltd.",
-		icon: "/company/wtw.jpg",
-		iconBg: "#E6DEDD",
-		date: "2024 - Present",
-		points: [
-			"Developing and maintaining Wordpress Site for A.V.M Auto The Car Body Shop based in Ahmedabad, Gujarat India.",
-			"Analyzing feedbacks and fixing bugs.",
-			"Search Engine Optimization.",
-			"Design Maintainence and hosting maintenance.",
-		],
-	},
-];
-
-const testimonials = [
-	{
-		id: 1,
-		testimonial:
-			"Behance is a social media platform owned by Adobe whose main focus is to showcase and discover creative work.",
-		name: "Om Patel",
-		image: "/socialmedia/behance.svg",
-		link: "https://www.behance.net/omthecreator",
-	},
-	{
-		id: 2,
-		testimonial:
-			"LinkedIn is a business and employment-focused social media platform that works through websites and mobile apps.",
-		name: "Om Patel",
-		image: "/socialmedia/linkedin.svg",
-		link: "https://www.linkedin.com/in/om-patel-401068143/",
-	},
-	{
-		id: 3,
-		testimonial:
-			"Dribbble is a self-promotion and social networking platform for digital designers and creatives. It serves as a design portfolio.",
-		name: "Om Patel",
-		image: "/socialmedia/dribble.svg",
-		link: "https://dribbble.com/om2121",
-	},
-	{
-		id: 4,
-		testimonial:
-			"Also do check out my UI/UX Portfolio where I have shared by design studies.",
-		name: "Om Patel",
-		image: "/socialmedia/portfolio.svg",
-		link: "https://omthecreator.netlify.app/",
-	},
-	{
-		id: 5,
-		testimonial:
-			"Also do check out my Github Profile where I have shared all my codes from basic to advanced.",
-		name: "Om Patel",
-		image: "/tech/github.webp",
-		link: "https://github.com/omunite215",
 	},
 ];
 
@@ -185,12 +137,12 @@ const projects :{
 	platform: "Netlify" | "Vercel" | "Figma" | "Wordpress" | "Web"
 }[] = [
 	{
-		name: "A.V.M Auto Portfolio",
+		name: "WeatherTracker",
 		description:
 			"A Designed and developed a visually appealing and user-friendly portfolio website using WordPress.",
 		tags: [
 			{
-				name: "wordpress",
+				name: "react",
 				color: "blue-text-gradient",
 			},
 			{
@@ -198,12 +150,12 @@ const projects :{
 				color: "green-text-gradient",
 			},
 		],
-		image: "/projectimg/avm.webp",
+		image: "/projectimg/weather.webp",
 		platform: "Wordpress",
-		deploy_link: "https://avmauto.in/",
+		deploy_link: "",
 	},
 	{
-		name: "Sparkbright Engineering Portfolio",
+		name: "Cofeeshop",
 		description:
 			" Designed and developed a visually appealing and user-friendly portfolio website using Next.JS.",
 		tags: [
@@ -219,14 +171,18 @@ const projects :{
 				name: "tailwind",
 				color: "blue-text-gradient",
 			},
+			{
+				name: "nest",
+				color: "blue-text-gradient",
+			},
 		],
-		image: "/projectimg/sparkbright.png",
-		source_code_link: "https://github.com/omunite215/React-Admin-DashBoard",
+		image: "/projectimg/overviewcofee.png",
+		source_code_link: "https://github.com/AZcodeGod/coffeeshop",
 		platform: "Web",
-		deploy_link: "https://sparkbright.in/",
+		deploy_link: "",
 	},
 	{
-		name: "HooBank",
+		name: "Dasboard Analytics",
 		description:
 			"A responsive Bank HomePage showcasing different features such as various payment gateways integration, easy money transfer, advanced security, etc. It has a beautiful interface made using Tailwind CSS and React",
 		tags: [
@@ -238,89 +194,56 @@ const projects :{
 				name: "tailwind",
 				color: "blue-text-gradient",
 			},
+			{
+				name: "shadcn",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "lucid icons",
+				color: "blue-text-gradient",
+			},
 		],
-		image: "/projectimg/hoobank.webp",
-		source_code_link: "https://github.com/omunite215/hoobank",
+		image: "/projectimg/dashboard-preview.png",
+		source_code_link: "https://github.com/AZcodeGod/dashboard",
 		platform: "Vercel",
-		deploy_link: "https://hoobankbyom.netlify.app/",
+		deploy_link: "",
 	},
 	{
-		name: "MERN Dashboard",
+		name: "Ecommerce like amazon",
 		description:
 			" Designed and developed a visually appealing and user-friendly Data Analytics Dashboard using MERN",
 		tags: [
 			{
-				name: "react",
+				name: "nextjs",
 				color: "blue-text-gradient",
 			},
 			{
-				name: "materialui",
+				name: "shadcn",
 				color: "orange-text-gradient",
 			},
 			{
-				name: "MongoDB",
-				color: "green-text-gradient",
+				name: "Thailwind",
+				color: "blue-text-gradient",
 			},
 			{
-				name: "Express",
+				name: "prisma",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "neonPostgress",
+				color: "blue-text-gradient",
+			},
+			{
+				name: "nestjs",
 				color: "pink-text-gradient",
 			},
 		],
-		image: "/projectimg/mern.png",
-		source_code_link: "https://github.com/omunite215/Project_MERN-Dashboard",
+		image: "/projectimg/overview.png",
+		source_code_link: "https://github.com/AZcodeGod/Ecommerce",
 		platform: "Web",
-		deploy_link: "https://admin-frontend-r705.onrender.com/",
+		deploy_link: "",
 	},
-	{
-		name: "Metaverse Web 3.0",
-		description:
-			"A Modern UI/UX Landing Page using Framer Motion and TailwindCSS with a feel and looks of Web 3.0",
-		tags: [
-			{
-				name: "react",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "tailwind",
-				color: "green-text-gradient",
-			},
-			{
-				name: "framer-motion",
-				color: "orange-text-gradient",
-			},
-		],
-		image: "/projectimg/metaverse.png",
-		source_code_link: "https://github.com/omunite215/Project_Metaverse",
-		platform: "Vercel",
-		deploy_link: "https://project-metaverse-beta.vercel.app/",
-	},
-	{
-		name: "Issue Tracker",
-		description:
-			"A Next.JS Full Stack Issue Tracker made using Next.Js, ShadCN UI, Prisma, mySQL with latest features like Next.JS Server Components, and Serverless features.",
-		tags: [
-			{
-				name: "next",
-				color: "blue-text-gradient",
-			},
-			{
-				name: "tailwind",
-				color: "green-text-gradient",
-			},
-			{
-				name: "shadCN",
-				color: "orange-text-gradient",
-			},
-			{
-				name: "mySQL",
-				color: "green-text-gradient",
-			},
-		],
-		image: "/projectimg/issuetracker.png",
-		source_code_link: "https://github.com/omunite215/Project_Issue-Tracker",
-		platform: "Vercel",
-		deploy_link: "https://project-issue-tracker.vercel.app/",
-	},
+	
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, technologies, experiences, projects };

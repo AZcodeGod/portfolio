@@ -13,7 +13,7 @@ Work done on it other than the tutorial:-
 - Added a Resume Button (Where you can put a link to your resume).
 - Enhanced Visibility and solved Responsive UI Problems.
 
-This Project is hosted in Netlify : [3D Portfolio](https://portfoliobyompatel.netlify.app/)
+This Project is hosted in Netlify : [3D Portfolio](https://portfoliobyomAshenafi.netlify.app/)
 
 ## :star: Give A Star
 
@@ -70,12 +70,12 @@ Specializations:
 ## 🙋‍♂️ Connect With Me
 
 [<img src="https://skillicons.dev/icons?i=github" />](https://github.com/omunite215)&nbsp;
-[<img src="https://skillicons.dev/icons?i=linkedin" />](https://www.linkedin.com/in/om-patel-401068143/)&nbsp;
+[<img src="https://skillicons.dev/icons?i=linkedin" />](https://www.linkedin.com/in/om-Ashenafi-401068143/)&nbsp;
 [<img src="https://skillicons.dev/icons?i=instagram" />](https://www.instagram.com/_21omp/)&nbsp;
 [<img src="https://skillicons.dev/icons?i=devto" />](https://portfoliobyom.netlify.app/)
 
 ## 🗒️ Authors
-- Om Patel
+- Ashenafi Getachew
 
 <p align="left">
   <a href="https://skillicons.dev">
