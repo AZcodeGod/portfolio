@@ -3,7 +3,7 @@
 import { slideIn } from "@/app/utils/motion";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { SectionWrapper } from "./HigherOrderComponents";
 import { EarthCanvas } from "./canvas";
 
@@ -18,6 +18,17 @@ const Contact = () => {
 
 	const [loading, setLoading] = useState(false);
 	const [success, setSuccess] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
+
+	// ✅ MOBILE DETECTION (safe)
+	useEffect(() => {
+		const checkMobile = () => setIsMobile(window.innerWidth < 768);
+
+		checkMobile();
+		window.addEventListener("resize", checkMobile);
+
+		return () => window.removeEventListener("resize", checkMobile);
+	}, []);
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -51,7 +62,12 @@ const Contact = () => {
 			);
 
 			setSuccess(true);
+
+			// reset form
 			setForm({ name: "", email: "", message: "" });
+
+			// auto hide success after 4s
+			setTimeout(() => setSuccess(false), 4000);
 		} catch (error) {
 			alert("Something went wrong. Try again.");
 		} finally {
@@ -80,46 +96,41 @@ const Contact = () => {
 					className="mt-10 flex flex-col gap-6"
 				>
 
-					{/* NAME */}
 					<input
 						type="text"
 						name="name"
 						value={form.name}
 						onChange={handleChange}
 						placeholder="Your Name"
-						className="bg-tertiary px-5 py-3 text-white rounded-lg outline-none focus:ring-2 focus:ring-cyan-400 transition"
+						className="bg-tertiary px-5 py-3 text-white rounded-lg outline-none"
 					/>
 
-					{/* EMAIL */}
 					<input
 						type="email"
 						name="email"
 						value={form.email}
 						onChange={handleChange}
 						placeholder="Your Email"
-						className="bg-tertiary px-5 py-3 text-white rounded-lg outline-none focus:ring-2 focus:ring-pink-400 transition"
+						className="bg-tertiary px-5 py-3 text-white rounded-lg outline-none"
 					/>
 
-					{/* MESSAGE */}
 					<textarea
 						rows={6}
 						name="message"
 						value={form.message}
 						onChange={handleChange}
 						placeholder="Your Message"
-						className="bg-tertiary px-5 py-3 text-white rounded-lg outline-none focus:ring-2 focus:ring-purple-400 transition"
+						className="bg-tertiary px-5 py-3 text-white rounded-lg outline-none"
 					/>
 
-					{/* BUTTON */}
 					<button
 						type="submit"
 						disabled={loading}
-						className="relative overflow-hidden bg-gradient-to-r from-cyan-400 to-pink-500 text-black font-semibold py-3 rounded-lg transition hover:scale-[1.02]"
+						className="bg-gradient-to-r from-cyan-400 to-pink-500 text-black font-semibold py-3 rounded-lg"
 					>
 						{loading ? "Sending..." : "Send Message"}
 					</button>
 
-					{/* SUCCESS MESSAGE */}
 					{success && (
 						<p className="text-green-400 text-sm mt-2">
 							Message sent successfully.
@@ -128,12 +139,18 @@ const Contact = () => {
 				</form>
 			</motion.div>
 
-			{/* 3D EARTH */}
+			{/* 3D EARTH (SAFE MOBILE FIX) */}
 			<motion.div
 				variants={slideIn("right", "tween", 0.2, 1)}
 				className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
 			>
-				<EarthCanvas />
+				{!isMobile ? (
+					<EarthCanvas />
+				) : (
+					<div className="flex items-center justify-center h-full text-white opacity-60">
+						3D Earth disabled on mobile for performance
+					</div>
+				)}
 			</motion.div>
 		</div>
 	);
