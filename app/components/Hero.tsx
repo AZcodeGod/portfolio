@@ -20,7 +20,7 @@ const Hero = () => {
 	const [text, setText] = useState("");
 	const [isMobile, setIsMobile] = useState(false);
 
-	// ✅ MOBILE DETECTION
+	// ✅ MOBILE DETECTION (safe)
 	useEffect(() => {
 		const checkMobile = () => setIsMobile(window.innerWidth < 768);
 
@@ -62,6 +62,8 @@ const Hero = () => {
 
 	return (
 		<section className="relative w-full h-screen mx-auto">
+
+			{/* TEXT SECTION */}
 			<div className="paddingX absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5">
 
 				{/* LEFT LINE */}
@@ -72,7 +74,7 @@ const Hero = () => {
 
 				{/* TEXT */}
 				<div>
-					<h1 className="heroHeadText text-white">
+					<h1 className="heroHeadText text-white drop-shadow-lg">
 						Hi, I&apos;m{" "}
 						<span className="text-[#915EFF]">Ashenafi</span>
 					</h1>
@@ -84,8 +86,21 @@ const Hero = () => {
 				</div>
 			</div>
 
-			{/* 3D CANVAS (FIXED) */}
-			{!isMobile && <ComputersCanvas />}
+			{/* 3D OR MOBILE FALLBACK */}
+			{!isMobile ? (
+				<ComputersCanvas />
+			) : (
+				<div className="absolute inset-0 flex items-center justify-center">
+					<div className="text-center text-white opacity-70">
+						<h2 className="text-xl font-bold">
+							Full Stack Developer
+						</h2>
+						<p className="text-sm mt-2">
+							Building scalable web systems
+						</p>
+					</div>
+				</div>
+			)}
 
 			{/* SCROLL INDICATOR */}
 			<div className="absolute xs:bottom-2 bottom-32 w-full flex justify-center items-center">
