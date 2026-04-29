@@ -5,7 +5,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useState } from "react";
 
 const Computers = ({ isMobile }: { isMobile: boolean }) => {
-	const computer = useGLTF("/desktop_pc/scene.gltf");
+	const computer = useGLTF("/desktop_pc/scene.gltf", true);
 	return (
 		<mesh>
 			<hemisphereLight intensity={0.15} groundColor="black" />
@@ -31,25 +31,29 @@ const Computers = ({ isMobile }: { isMobile: boolean }) => {
 const ComputersCanvas = () => {
 	const [isMobile, setIsMobile] = useState(false);
 
-	useEffect(() => {
-		const mediaQuery = window.matchMedia("(max-width: 500px)");
-		setIsMobile(mediaQuery.matches);
-		const handleMediaQueryChange = (event: MediaQueryListEvent) => {
-			setIsMobile(event.matches);
-		};
-		mediaQuery.addEventListener("change", handleMediaQueryChange);
+useEffect(() => {
+	if (typeof window === "undefined") return;
 
-		return () => {
-			mediaQuery.removeEventListener("change", handleMediaQueryChange);
-		};
-	}, []);
+	const mediaQuery = window.matchMedia("(max-width: 768px)");
+	setIsMobile(mediaQuery.matches);
+
+	const handleMediaQueryChange = (event: MediaQueryListEvent) => {
+		setIsMobile(event.matches);
+	};
+
+	mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+	return () => {
+		mediaQuery.removeEventListener("change", handleMediaQueryChange);
+	};
+}, []);
 
 	return (
 		<Canvas
 			frameloop="demand"
 			shadows
 			camera={{ position: [20, 3, 5], fov: 25 }}
-			gl={{ preserveDrawingBuffer: true }}
+			
 		>
 			<Suspense fallback={<CanvasLoader />}>
 				<OrbitControls

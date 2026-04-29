@@ -8,9 +8,9 @@ const Hero = () => {
 	const words = [
 		"Full Stack Software Engineer",
 		"UI/UX Builder",
-		"Nextjs React Nest prisma python  Developer",
+		"Nextjs React Nest prisma python Developer",
 		"System Designer",
-		"Wordpres Developer",
+		"Wordpress Developer",
 		"Network",
 	];
 
@@ -18,7 +18,19 @@ const Hero = () => {
 	const [charIndex, setCharIndex] = useState(0);
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [text, setText] = useState("");
+	const [isMobile, setIsMobile] = useState(false);
 
+	// ✅ MOBILE DETECTION
+	useEffect(() => {
+		const checkMobile = () => setIsMobile(window.innerWidth < 768);
+
+		checkMobile();
+		window.addEventListener("resize", checkMobile);
+
+		return () => window.removeEventListener("resize", checkMobile);
+	}, []);
+
+	// ✅ TYPEWRITER EFFECT
 	useEffect(() => {
 		const currentWord = words[wordIndex];
 		const speed = isDeleting ? 50 : 100;
@@ -51,21 +63,20 @@ const Hero = () => {
 	return (
 		<section className="relative w-full h-screen mx-auto">
 			<div className="paddingX absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5">
-				
-				{/* LEFT LINE ANIMATION */}
+
+				{/* LEFT LINE */}
 				<div className="flex flex-col justify-center items-center mt-5">
 					<div className="w-5 h-5 rounded-full bg-[#915EFF]" />
 					<div className="w-1 sm:h-80 h-40 violet-gradient" />
 				</div>
 
-				{/* TEXT SECTION */}
+				{/* TEXT */}
 				<div>
 					<h1 className="heroHeadText text-white">
 						Hi, I&apos;m{" "}
 						<span className="text-[#915EFF]">Ashenafi</span>
 					</h1>
 
-					{/* 🔥 ANIMATED TEXT HERE */}
 					<p className="heroSubText flex items-center gap-1">
 						{text}
 						<span className="animate-pulse">|</span>
@@ -73,8 +84,8 @@ const Hero = () => {
 				</div>
 			</div>
 
-			{/* 3D CANVAS */}
-			<ComputersCanvas />
+			{/* 3D CANVAS (FIXED) */}
+			{!isMobile && <ComputersCanvas />}
 
 			{/* SCROLL INDICATOR */}
 			<div className="absolute xs:bottom-2 bottom-32 w-full flex justify-center items-center">
@@ -84,8 +95,7 @@ const Hero = () => {
 							animate={{ y: [0, 24, 0] }}
 							transition={{
 								duration: 1.5,
-								repeat: Number.POSITIVE_INFINITY,
-								repeatType: "loop",
+								repeat: Infinity,
 							}}
 							className="w-3 h-3 rounded-full bg-secondary mb-1"
 						/>
